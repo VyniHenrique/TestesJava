@@ -8,20 +8,22 @@ public class Reserva {
 
     private Cliente cliente;
     private Carro carro;
+    private int quantidadeDeDias;
 
-    public Reserva(Cliente cliente, Carro carro) {
+    public Reserva(Cliente cliente, Carro carro, int quantidadeDeDias) {
+        if (quantidadeDeDias < 1){
+            throw new ReservaInvalidaException("A reserva é inválida");
+        }
         this.cliente = cliente;
         this.carro = carro;
+        this.quantidadeDeDias = quantidadeDeDias;
     }
 
-    public double calcularTotalReserva(int quantidadeDeDias){
+    public double calcularTotalReserva(){
 
         double valorAluguel = carro.calcularValorAluguel(quantidadeDeDias);
         System.out.println(cliente.getNome());
 
-        if (quantidadeDeDias < 0){
-            throw new ReservaInvalidaException("A reserva é inválida");
-        }
         return valorAluguel;
     }
 }
