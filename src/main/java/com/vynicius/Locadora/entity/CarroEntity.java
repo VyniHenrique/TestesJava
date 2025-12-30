@@ -13,9 +13,10 @@ public class CarroEntity {
     public CarroEntity(){
     }
 
-    public CarroEntity(String modelo, BigDecimal valorDiaria){
+    public CarroEntity(String modelo, BigDecimal valorDiaria, int ano){
         this.modelo = modelo;
         this.valorDiaria = valorDiaria;
+        this.ano = ano;
     }
 
     @Id
@@ -25,4 +26,6 @@ public class CarroEntity {
     private String modelo;
 
     private BigDecimal valorDiaria;
+
+    private int ano;
 }
