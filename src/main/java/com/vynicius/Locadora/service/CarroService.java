@@ -45,7 +45,7 @@ public class CarroService {
         var carro = repository.findById(id)
                 .orElseThrow(() -> new CarroNaoEncontradoException("Carro não encontrado"));
 
-        repository.deleteById(id);
+        repository.deleteById(carro.getId());
     }
 
     public CarroEntity buscarPorId(Long id){
